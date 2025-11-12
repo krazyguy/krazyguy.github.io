@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehraj Hossain - AI Architect & Product Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom class for the video embed to be responsive */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* Simple scrollbar for dark mode */
+        :root {
+            --scrollbar-bg: #f1f5f9;
+            --scrollbar-thumb: #94a3b8;
+        }
+        html.dark {
+            --scrollbar-bg: #1e293b;
+            --scrollbar-thumb: #475569;
+        }
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+        body::-webkit-scrollbar-track {
+            background: var(--scrollbar-bg);
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: var(--scrollbar-thumb);
+            border-radius: 10px;
+            border: 2px solid var(--scrollbar-bg);
+        }
+    </style>
+    <script>
+        // Tailwind dark mode configuration
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49'
+                        }
+                    }
+                }
+            }
+        }
+
+        // Dark mode toggle logic
+        // On page load or when changing themes, best to add inline in <head> to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300">
+
+    <header class="sticky top-0 z-50 w-full bg-slate-50/90 dark:bg-slate-900/90 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-brand-600 dark:text-brand-500">Mehraj Hossain</span>
+                </div>
+                
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="#about" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-900 dark:hover:text-white">About Me</a>
+                    <a href="#projects" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-900 dark:hover:text-white">Projects</a>
+                    <a href="#skills" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-900 dark:hover:text-white">Skills</a>
+                    <a href="#contact" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-900 dark:hover:text-white">Contact</a>
+                </div>
+                
+                <div class="flex items-center">
+                    <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode" class="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500">
+                        <svg class="h-6 w-6 hidden dark:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <svg class="h-6 w-6 block dark:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                </div>
+
+                </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+        <section class="text-center py-16">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                <span class="block">Hi, I'm</span>
+                <span class="block text-brand-600 dark:text-brand-500 mt-2">Mehraj Hossain</span>
+            </h1>
+            <p class="mt-6 max-w-2xl mx-auto text-xl text-slate-600 dark:text-slate-300">
+                I am an **AI Architect** and **Product Engineer**.
+                I design and orchestrate complex, multi-modal AI systems that turn innovative ideas into real-world applications.
+            </p>
+            <div class="mt-10 flex justify-center gap-x-6">
+                <a href="#projects" class="rounded-md bg-brand-600 px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+                    View My Work
+                </a>
+                <a href="#contact" class="rounded-md bg-slate-200 dark:bg-slate-800 px-5 py-3 text-base font-semibold text-slate-900 dark:text-white shadow-sm hover:bg-slate-300 dark:hover:bg-slate-700">
+                    Get In Touch
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 sm:py-24 border-t border-slate-200 dark:border-slate-700">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">About Me</h2>
+                <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
+                    My core strength is translating a product vision into a full-scale, functional application. I leverage generative AI as a force multiplier to build, debug, and deploy sophisticated systems at a fraction of the time of traditional development. This allows me to focus on what matters: the product logic, the user experience, and the architectural integrity.
+                </p>
+            </div>
+        </section>
+
+        <section id="projects" class="py-16 sm:py-24 border-t border-slate-200 dark:border-slate-700">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Flagship Projects</h2>
+                <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+                    These are not just code; they are full-scale, architected AI products.
+                </p>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+                
+                <div class="flex flex-col bg-white dark:bg-slate-800 rounded-lg shadow-xl overflow-hidden border border-slate-200 dark:border-slate-700">
+                    <div class="video-container rounded-t-lg">
+           
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-semibold text-slate-900 dark:text-white">Advanced Virtual Try-On</h3>
+                        <p class="mt-4 text-slate-600 dark:text-slate-300 flex-grow">
+                            I transformed a basic tech demo into a market-ready product. The most significant feature is an advanced computer vision pipeline that can take **any** real-world photo, automatically identify and segment the clothing, clean the image, and add it to a user's persistent, personal wardrobe.
+                        </p>
+                        <div class="mt-6">
+                            <h4 class="text-sm font-medium text-slate-900 dark:text-white">Key Features:</h4>
+                            <ul class="mt-2 list-disc list-inside text-slate-600 dark:text-slate-300 space-y-1">
+                                <li>**Advanced Wardrobe Pipeline:** Extracts clothing from any user-uploaded image.</li>
+                                <li>**Persistent Gallery:** Saves generated outfits to a user-specific database.</li>
+                                <li>**Prompt-Based Editing:** Allows users to refine generated images (e.g., "change lighting," "change pose") via chat.</li>
+                                <li>**Multi-Model Support:** Easily switch between user and clothing models.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6">
+                            <p class="text-sm font-medium text-slate-700 dark:text-slate-300">
+                                (A live demo is available. I am happy to provide a live walkthrough.)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col bg-white dark:bg-slate-800 rounded-lg shadow-xl overflow-hidden border border-slate-200 dark:border-slate-700">
+                    <div class="video-container rounded-t-lg">
+                       
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-semibold text-slate-900 dark:text-white">Multi-Modal AI Assistant</h3>
+                        <p class="mt-4 text-slate-600 dark:text-slate-300 flex-grow">
+                            This is a fully integrated "ChatGPT-like" assistant that orchestrates multiple, distinct AI services into a single, cohesive chat interface.
+                        </p>
+                        <div class="mt-6">
+                            <h4 class="text-sm font-medium text-slate-900 dark:text-white">Key Features:</h4>
+                            <ul class="mt-2 list-disc list-inside text-slate-600 dark:text-slate-300 space-y-1">
+                                <li>**Orchestrates 4+ AI Services:** (Text, Image Gen, Image Edit, File RAG).</li>
+                                <li>**Complex State Management:** Maintains context across different modes.</li>
+                                <li>**File Analysis (RAG):** Upload a document and "talk" to it.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6">
+                            <p class="text-sm font-medium text-slate-700 dark:text-slate-300">
+                                (This project is deployed as a scale-to-zero serverless microservice. Please contact me for a live demo.)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 sm:py-24 border-t border-slate-200 dark:border-slate-700">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Core Skillset</h2>
+                
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700">
+                        <h3 class="text-xl font-semibold text-slate-900 dark:text-white">AI & Machine Learning</h3>
+                        <ul class="mt-4 list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+                            <li>**AI Architecture:** Designing multi-model systems and AI-native workflows.</li>
+                            <li>**LLMs:** Prompt Engineering, Tool Calling, Agentic AI (LangChain).</li>
+                            <li>**RAG:** Retrieval-Marked Generation pipelines.</li>
+                            <li>**Image Generation:** Stable Diffusion, ComfyUI, prompt-based editing.</li>
+                            <li>**Computer Vision:** Image Segmentation, Object Extraction, In-Painting.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700">
+                        <h3 class="text-xl font-semibold text-slate-900 dark:text-white">Cloud & Engineering</h3>
+                        <ul class="mt-4 list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+                            <li>**Cloud:** Google Cloud (Cloud Run, Vertex AI, GCE)</li>
+                            <li>**DevOps:** Docker, Serverless Deployment</li>
+                            <li>**Languages:** Python, JavaScript</li>
+                            <li>**Frameworks:** React, Node.js, FastAPI, HTML/CSS, PHP</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 sm:py-24 border-t border-slate-200 dark:border-slate-700">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Let's Connect</h2>
+                <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
+                    I am currently seeking new opportunities. I am always happy to provide a live, technical walkthrough of my projects.
+                </p>
+                <div class="mt-10 flex items-center justify-center gap-x-8">
+                    
+                    <a href="[YOUR-GITHUB-PROFILE-URL]" target="_blank" rel="noopener noreferrer" class="text-slate-500 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-500">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="h-10 w-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.488.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.602-3.369-1.343-3.369-1.343-.454-1.156-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.087.636-1.338-2.22-.253-4.555-1.11-4.555-4.947 0-1.092.39-1.986 1.026-2.688-.103-.253-.446-1.272.098-2.649 0 0 .84-.27 2.75 1.025.798-.222 1.649-.333 2.5-.336.851.003 1.702.114 2.5.336 1.909-1.295 2.747-1.025 2.747-1.025.546 1.377.202 2.396.1 2.649.638.702 1.024 1.596 1.024 2.688 0 3.848-2.339 4.69-4.566 4.935.359.309.678.915.678 1.848 0 1.338-.012 2.419-.012 2.747 0 .267.18.577.688.48C19.138 20.163 22 16.417 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/mehraj-hossain-b1a919344/" target="_blank" rel="noopener noreferrer" class="text-slate-500 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-500">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="h-10 w-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.783 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="mailto:mehraj.hossain@gmail.com" class="text-slate-500 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-500">
+                        <span class="sr-only">Email</span>
+                        <svg class="h-10 w-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M3 4a2 2 0 00-2 2v12a2 2 0 002 2h18a2 2 0 002-2V6a2 2 0 00-2-2H3zm16.707 2.293a1 1 0 00-1.414 0L12 11.586 5.707 6.293a1 1 0 00-1.414 1.414L12 14.414l7.707-7.707a1 1 0 00-1.414-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-slate-200 dark:border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <p class="text-center text-sm text-slate-500 dark:text-slate-400">
+                &copy; 2025 Mehraj Hossain. Built with passion and code.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
