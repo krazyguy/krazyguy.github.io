@@ -61,4 +61,4 @@ This is a fully integrated "ChatGPT-like" assistant that orchestrates multiple, 
 
 I am currently seeking new opportunities and am always happy to provide a live, technical walkthrough of my projects.
 
-**[Find me on LinkedIn](https://www.linkedin.com/in/mehraj-hossain-b1a919344/)** | **[Email Me](mehraj.hossain@gmail.com)**
+**[Find me on LinkedIn](https://www.linkedin.com/in/mehraj-hossain-b1a919344/)** | **[Email Me](mailto:mehraj.hossain@gmail.com)**
